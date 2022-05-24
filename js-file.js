@@ -2,6 +2,13 @@ const container = document.querySelector("#container");
 const grid = [];
 
 createGrid();
+userGrid();
+hoverTrail();
+
+function userGrid() {
+  const btn = document.createElement("button");
+  btn.classList.add("btn");
+}
 
 function createGrid() {
   for (let i = 0; i < 16; i++) {
@@ -14,4 +21,13 @@ function createGrid() {
       grid[i].appendChild(cell);
     }
   }
+}
+
+function hoverTrail() {
+  const cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.addEventListener("mouseover", () => {
+      cell.setAttribute("style", "background: blue;");
+    });
+  });
 }
