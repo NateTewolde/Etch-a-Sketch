@@ -32,7 +32,7 @@ function hoverTrail() {
   const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", () => {
-      cell.setAttribute("style", "background: blue;");
+      cell.setAttribute("style", `background: ${getRandomColor()};`);
     });
   });
 }
@@ -41,4 +41,11 @@ function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
+}
+
+function getRandomColor() {
+  let randomColor = "#000000".replace(/0/g, function () {
+    return (~~(Math.random() * 16)).toString(16);
+  });
+  return randomColor;
 }
